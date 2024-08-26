@@ -4,4 +4,9 @@ conjunto_C = {4, 5, 7, 8, 2}
 
 interseccionABC = conjunto_A.intersection(conjunto_B, conjunto_C)
 
+
+
 print(interseccionABC)
+
+
+
