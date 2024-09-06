@@ -22,6 +22,10 @@ def realizarDiferenciaSimetrica(conjuntoAuxiliar):
 
 conjuntoA=[1,2,5,7]
 conjuntoB=[5,6,7,4]
+conjuntoC=[8,2,6,3]
 conjuntoAuxiliar=crearConjuntoAuxiliar(conjuntoA,conjuntoB)
+print(conjuntoAuxiliar)
+conjuntoAuxiliar=crearConjuntoAuxiliar(conjuntoAuxiliar,conjuntoC)
+print(conjuntoAuxiliar)
 diferenciaSimetrica=realizarDiferenciaSimetrica(conjuntoAuxiliar)
 print(diferenciaSimetrica)
