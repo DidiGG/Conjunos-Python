@@ -3,12 +3,16 @@ from matplotlib_venn_wordcloud import venn3_wordcloud
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
+#Se crea una funcion que une dos conjuntos y retorna un conjunto auxiliar
 def crearConjuntoAuxiliar(conjuntoA,conjuntoB):
     conjuntoAuxiliar=conjuntoA
     for elementoB in conjuntoB:
         conjuntoAuxiliar.append(elementoB)
     return conjuntoAuxiliar
 
+"""Funcion que recibe el conjunto auxiliar y por medio de dos ciclos, se recorre asi mismo y se pregunta si
+cada uno de los elementos esta mas de una vez dentro del conjunto, si no es asi, agrega ese elemento a otro arreglo,
+ que el metodo retornara despues"""
 def realizarDiferenciaSimetrica(conjuntoAuxiliar):
     diferenciaSimetrica=[]
     contador=0
@@ -23,32 +27,14 @@ def realizarDiferenciaSimetrica(conjuntoAuxiliar):
 
 conjuntoA=[1,2,5,7]
 conjuntoB=[5,6,7,4]
+conjuntoC=[8,2,6,3]
 conjuntoAuxiliar=crearConjuntoAuxiliar(conjuntoA,conjuntoB)
+print(conjuntoAuxiliar)
+conjuntoAuxiliar=crearConjuntoAuxiliar(conjuntoAuxiliar,conjuntoC)
+print(conjuntoAuxiliar)
 diferenciaSimetrica=realizarDiferenciaSimetrica(conjuntoAuxiliar)
 print(diferenciaSimetrica)
 
-#Creación diagrama de Venn, con está libreria los 
-#duplicados se eliminan automaticamente
-venn = venn3_wordcloud([conjuntoA, conjuntoB],
-                       ('Conjunto A', 'Conjunto B'))
-plt.show()
 
-#Creamos una cadena de texto vacia para listar los elementos de la Interseccion
-union_txt = ''.join(diferenciaSimetrica)
-
-wordcloud = WordCloud(
-    width=500,                    
-    height=250,                   
-    background_color='white',     
-    colormap='rainbow',           
-    contour_color='white',        
-    contour_width=2               
-).generate(union_txt)
-
-# Mostrar la nube de palabras
-plt.figure(figsize=(10, 5))
-plt.imshow(wordcloud, interpolation='bilinear')
-plt.axis("off")  # Ocultar los ejes
-plt.show()
 
 
