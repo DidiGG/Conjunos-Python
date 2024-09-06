@@ -4,6 +4,8 @@ from Python.ValoresFueraDeLosLimitesException import ValoresFueraDeLosLimitesExc
 
 def sacarSubconjunto(conjuntoGenerico):
     subConjuntoB = []
+    inicioSubConjunto=0
+    finalSubConjunto=0
     try:
         inicioSubConjunto = int(input("Ingrese desde que posicion del conjunto quiere que inicie su nuevo subconjunto"))
         finalSubConjunto = int(input("Ingrese la posicion donde finalizara su nuevo subconjunto"))
@@ -17,16 +19,17 @@ def sacarSubconjunto(conjuntoGenerico):
         print("El inicio y el final del subconjunto deben ser numeros enteros")
     except ValoresFueraDeLosLimitesException as e:
         print(e.message)
+    except InicialMayorQueFinal as e1:
+        print(e1.message)
     else:
+        inicioSubConjunto -= 1
+        while inicioSubConjunto < finalSubConjunto:
+            subConjuntoB.append(conjuntoGenerico[inicioSubConjunto])
+            inicioSubConjunto += 1
 
-        else:
-            inicioSubConjunto -= 1
-            while inicioSubConjunto < finalSubConjunto:
-                subConjuntoB.append(conjuntoGenerico[inicioSubConjunto])
-                inicioSubConjunto+=1
     return subConjuntoB
 
 conjuntoA=["Hola",",","no","quiero","hacer","la","tarea","de","tlf"]
 subConjuntoB=sacarSubconjunto(conjuntoA)
-if subConjuntoB!=None:
+if len(subConjuntoB)>0:
     print(subConjuntoB)
