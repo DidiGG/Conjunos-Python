@@ -1,7 +1,9 @@
 from Python.InicialMayorQueFinalException import InicialMayorQueFinal
 from Python.ValoresFueraDeLosLimitesException import ValoresFueraDeLosLimitesException
 
-
+"""Defino el metodo para encontrar un subconjunto de un superconjunto. Recibe por parametro un conjunto cualquiera, le pide al usuario desde
+que elemento hasta que elemento del superconjunto debe ser creado el nuevo subconjunto, valida si el la posicion inicial es menor que la final
+y si alguno de los dos valores es mayor que la cantidad de elementos que tiene el conjunto. Tener en cuenta que la funcion retorna el subconjunto """
 def sacarSubconjunto(conjuntoGenerico):
     subConjuntoB = []
     inicioSubConjunto=0
@@ -29,6 +31,7 @@ def sacarSubconjunto(conjuntoGenerico):
 
     return subConjuntoB
 
+"""Se crean dos variables: una para almacenar al superconjunto y la otra para guardar el subconjunto resultanre. Si el subconjunto no posee elementos, no lo imprime"""
 conjuntoA=["Hola",",","no","quiero","hacer","la","tarea","de","tlf"]
 subConjuntoB=sacarSubconjunto(conjuntoA)
 if len(subConjuntoB)>0:

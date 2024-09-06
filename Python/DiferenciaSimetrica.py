@@ -1,9 +1,13 @@
+"""Se crea una funcion que une dos conjuntos y retorna un conjunto auxiliar"""
 def crearConjuntoAuxiliar(conjuntoA,conjuntoB):
     conjuntoAuxiliar=conjuntoA
     for elementoB in conjuntoB:
         conjuntoAuxiliar.append(elementoB)
     return conjuntoAuxiliar
 
+"""Funcion que recibe el conjunto auxiliar y por medio de dos ciclos, se recorre asi mismo y se pregunta si
+cada uno de los elementos esta mas de una vez dentro del conjunto, si no es asi, agrega ese elemento a otro arreglo,
+ que el metodo retornara despues"""
 def realizarDiferenciaSimetrica(conjuntoAuxiliar):
     diferenciaSimetrica=[]
     contador=0
