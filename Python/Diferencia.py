@@ -9,19 +9,24 @@ conjuntoB = {"B", "G", "J"}
 conjuntoC = {"Z", "D", "X","B"}
 
 #Funcion para realizar la Union entre conjuntos
-def union_conjuntos(*conjuntos):
-    resultado = set()  # Crear un conjunto vacío para almacenar el resultado
-    # Iterar sobre cada conjunto en el argumento
-    for conjunto in conjuntos:
-        # Agregar todos los elementos del conjunto actual al resultado
-        for elem in conjunto:
-            resultado.add(elem)
+def diferencia_conjuntos(conjunto1, conjunto2, conjunto3):
+    # Paso 1: Calcular la unión de conjunto2 y conjunto3
+    union_BC = set(conjunto2)  # Empezar con conjunto2
+    for elemento in conjunto3:
+        union_BC.add(elemento)  # Añadir los elementos de conjunto3 a la unión
+    
+    # Paso 2: Calcular la diferencia entre conjunto1 y la unión de conjunto2 y conjunto3
+    resultado = set(conjunto1)  # Empezar con conjunto1
+    for elemento in union_BC:
+        if elemento in resultado:
+            resultado.discard(elemento)  # Eliminar los elementos que están en la unión
+    
     return resultado
 
 
 #Realizamos el resultado de la union
-unionABC = union_conjuntos(conjuntoA, conjuntoB, conjuntoC)
-print("Union: ", unionABC)
+difenciaABC = diferencia_conjuntos(conjuntoA, conjuntoB, conjuntoC)
+print("Diferencia: ", difenciaABC)
 
 #Creación diagrama de Venn, con está libreria los 
 #duplicados se eliminan automaticamente
@@ -29,8 +34,8 @@ venn = venn3_wordcloud([conjuntoA, conjuntoB, conjuntoC],
                        ('Conjunto A', 'Conjunto B', 'conjunto C'))
 plt.show()
 
-#Creamos una cadena de texto vacia para listar los elementos de la Union
-union_txt = ''.join(unionABC)
+#Creamos una cadena de texto vacia para listar los elementos de la difencia
+union_txt = ''.join(difenciaABC)
 
 wordcloud = WordCloud(
     width=500,                    
@@ -46,7 +51,3 @@ plt.figure(figsize=(10, 5))
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")  # Ocultar los ejes
 plt.show()
-
-
-
-

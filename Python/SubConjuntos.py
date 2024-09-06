@@ -1,5 +1,5 @@
-from Python.InicialMayorQueFinalException import InicialMayorQueFinal
-from Python.ValoresFueraDeLosLimitesException import ValoresFueraDeLosLimitesException
+from ExcepcionMayor import InicialMayorQueFinal
+from Outlimit import ValoresFueraDeLosLimitesException
 
 
 def sacarSubconjunto(conjuntoGenerico):
