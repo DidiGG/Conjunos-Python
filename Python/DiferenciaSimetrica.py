@@ -1,8 +1,3 @@
-import matplotlib.pyplot as plt
-from matplotlib_venn_wordcloud import venn3_wordcloud
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
-
 #Se crea una funcion que une dos conjuntos y retorna un conjunto auxiliar
 def crearConjuntoAuxiliar(conjuntoA,conjuntoB):
     conjuntoAuxiliar=conjuntoA
@@ -34,6 +29,8 @@ conjuntoAuxiliar=crearConjuntoAuxiliar(conjuntoAuxiliar,conjuntoC)
 print(conjuntoAuxiliar)
 diferenciaSimetrica=realizarDiferenciaSimetrica(conjuntoAuxiliar)
 print(diferenciaSimetrica)
+
+
 
 
 
