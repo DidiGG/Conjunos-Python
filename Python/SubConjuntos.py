@@ -4,6 +4,7 @@ from Outlimit import ValoresFueraDeLosLimitesException
 
 def sacarSubconjunto(conjuntoGenerico):
     subConjuntoB = set()
+    conjuntoGenerico=list(conjuntoGenerico)
     inicioSubConjunto=0
     finalSubConjunto=0
     try:
@@ -24,12 +25,12 @@ def sacarSubconjunto(conjuntoGenerico):
     else:
         inicioSubConjunto -= 1
         while inicioSubConjunto < finalSubConjunto:
-            subConjuntoB.add(conjuntoGenerico.__getattribute__(inicioSubConjunto))
+            subConjuntoB.add(conjuntoGenerico[inicioSubConjunto])
             inicioSubConjunto += 1
 
     return subConjuntoB
 
-conjuntoA={"Hola",",","no","quiero","hacer","la","tarea","de","tlf"}
+conjuntoA={1,2,3,4,5,6,7,8,9,0}
 print(conjuntoA)
 subConjuntoB=sacarSubconjunto(conjuntoA)
 if len(subConjuntoB)>0:
