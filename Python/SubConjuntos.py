@@ -3,7 +3,7 @@ from Outlimit import ValoresFueraDeLosLimitesException
 
 
 def sacarSubconjunto(conjuntoGenerico):
-    subConjuntoB = []
+    subConjuntoB = set()
     inicioSubConjunto=0
     finalSubConjunto=0
     try:
@@ -24,12 +24,13 @@ def sacarSubconjunto(conjuntoGenerico):
     else:
         inicioSubConjunto -= 1
         while inicioSubConjunto < finalSubConjunto:
-            subConjuntoB.append(conjuntoGenerico[inicioSubConjunto])
+            subConjuntoB.add(conjuntoGenerico.__getattribute__(inicioSubConjunto))
             inicioSubConjunto += 1
 
     return subConjuntoB
 
-conjuntoA=["Hola",",","no","quiero","hacer","la","tarea","de","tlf"]
+conjuntoA={"Hola",",","no","quiero","hacer","la","tarea","de","tlf"}
+print(conjuntoA)
 subConjuntoB=sacarSubconjunto(conjuntoA)
 if len(subConjuntoB)>0:
     print(subConjuntoB)
